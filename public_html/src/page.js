@@ -65,9 +65,9 @@ class Page{
 		this.config = { font:'Calibri', size:18, padding:10, colour:'#999', width:256, height:256 };
 		
 		const planeGeometry = new THREE.PlaneGeometry(1024,1024);
-		const planeMaterial = new THREE.MeshBasicMaterial()
+		const planeMaterial = new THREE.MeshBasicMaterial();
 		this.mesh = new THREE.Mesh(planeGeometry, planeMaterial);
-		this.mesh.rotation.y = Math.PI;
+		// this.mesh.rotation.y = Math.PI;
 		scene.add(this.mesh);
 		
 		const self = this;

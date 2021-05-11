@@ -152,9 +152,9 @@ function createHexSphere(iNumSubdiv)
 
     var color, f, f2, f3, p, n, vertexIndex;
 
-    var radius = 200.0;				
+    var radius = 100.0;				
 
-       hexoplanetGeometry =  new THREE.IcosahedronGeometry( 200, 0 );
+       hexoplanetGeometry =  new THREE.IcosahedronGeometry( radius, 0 );
     hexoplanetGeometry.dynamic = true;
     
 

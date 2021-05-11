@@ -53,22 +53,27 @@ class Game{
         this.sun = light;
 
 		var page = new Page(this.scene, 'Ex Ludo Librium 01.');
-		page.mesh.position.set(0,512,300);
+		page.mesh.position.set(0,500,500);
 
 		var page = new Page(this.scene, 'Ex Ludo Librium 02.');
-		page.mesh.position.set(512,512,250);
+		page.mesh.rotation.y = THREE.Math.degToRad( 60 );
+		page.mesh.position.set(0,500,-500);
 
         var page = new Page(this.scene, 'Ex Ludo Librium 03.');
-		page.mesh.position.set(0,512,300);
+		page.mesh.rotation.y = THREE.Math.degToRad( 120 );
+		page.mesh.position.set(0,500,-500);
 
 		var page = new Page(this.scene, 'Ex Ludo Librium 04.');
-		page.mesh.position.set(512,512,250);
+		page.mesh.rotation.y = THREE.Math.degToRad( 180 );
+		page.mesh.position.set(0,500,-500);
 
         var page = new Page(this.scene, 'Ex Ludo Librium 05.');
-		page.mesh.position.set(0,512,300);
+		page.mesh.rotation.y = THREE.Math.degToRad( 240 );
+		page.mesh.position.set(0,500,-500);
 
 		var page = new Page(this.scene, 'Ex Ludo Librium 06.');
-		page.mesh.position.set(512,512,250);
+		page.mesh.rotation.y = THREE.Math.degToRad( 300 );
+		page.mesh.position.set(0,500,-500);
 
 		
 		$('form').submit(function(){
