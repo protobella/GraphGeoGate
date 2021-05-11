@@ -1,0 +1,59 @@
+html {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  body {
+    background-color: black;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+ 
+  #camera-btn {
+    position: absolute;
+     left: 20px; 
+   bottom: 20px; 
+    color: #ffffff;
+    background: #aa0089;
+    font-size: 30px;
+    text-align: center;
+    line-height: 80px;
+    vertical-align: middle;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  
+  #camera-scroll {
+    position: absolute;
+     left: 130px; 
+     bottom: 20px; 
+    color: #ffffff;
+    background: #aa0089;
+    font-size: 30px;
+    text-align: center;
+    line-height: 60px;
+    vertical-align: middle;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  
+  #btn{
+    position: absolute;
+    /* top: 30px;*/
+    left: 30px; 
+    height: 40px;
+    padding: 10px;
+    font: Arial 30px;
+    border-radius: 8px;
+    border: none;
+    background: #00a;
+    color: #fff;
+  }
