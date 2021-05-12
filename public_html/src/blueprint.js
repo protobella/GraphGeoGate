@@ -142,6 +142,20 @@ class Game{
 					}
 				} );
 			});
+
+			// const loader = new THREE.FBXLoader();
+			// loader.load( `${game.assetsPath}files/untitled.fbx`, function ( object ) {
+			// 	object.traverse( function ( child ) {
+			// 		if ( child.isMesh ) {
+			// 			child.castShadow = true;
+			// 			child.receiveShadow = true;
+			// 		}
+			// 	} );
+			// 	object.position.x =  0
+			//  object.scale.set(2,2,2)
+			// 	game.scene.add( object );
+
+			// } );
             
             game.player.object = new THREE.Object3D();
 			game.scene.add(game.player.object);
@@ -187,11 +201,27 @@ class Game{
 	}
     
     createColliders(){
+		
+		const t = this.scene
         const geometry = new THREE.BoxGeometry(500, 400, 500);
         const material = new THREE.MeshBasicMaterial({color:0x222222, wireframe:true});
+
+		this.colliders = [];
         
-        this.colliders = [];
-        
+
+		const loaderr = new THREE.STLLoader();
+		loaderr.load( `${this.assetsPath}files/Farm.stl`, function ( geometryy ) {
+			const materiall = new THREE.MeshPhongMaterial( { color: 0xff5533, specular: 0x111111, shininess: 200 } );
+			const meshh = new THREE.Mesh( geometryy, materiall );
+
+			meshh.position.set( 0, 100, 5);
+			meshh.scale.set( 10, 10, 10 );
+
+			meshh.castShadow = true;
+			meshh.receiveShadow = true;
+			t.add(meshh)
+		});
+
         for (let x=-5000; x<5000; x+=1000){
             for (let z=-5000; z<5000; z+=1000){
                 if (x==0 && z==0) continue;
