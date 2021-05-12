@@ -81,6 +81,8 @@ class Page{
 				// in this example we create the material when the texture is loaded
 				self.img = texture.image;
 				self.mesh.material.map = texture;
+				//aeon
+				self.mesh.material.side = THREE.DoubleSide;
 				self.mesh.material.transparent = true;
 				self.mesh.material.needsUpdate = true;
 				if (msg!==undefined) self.update(msg);

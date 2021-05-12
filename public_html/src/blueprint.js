@@ -52,28 +52,43 @@ class Game{
 		this.scene.add( light );
         this.sun = light;
 
-		var page = new Page(this.scene, 'Ex Ludo Librium 01.');
-		page.mesh.position.set(0,500,500);
+		var point = new THREE.Mesh(new THREE.SphereGeometry(10,10,10),new THREE.MeshBasicMaterial(0x993366));
+		point.position.set(0,0,0);
+		this.scene.add(point);
 
-		var page = new Page(this.scene, 'Ex Ludo Librium 02.');
-		page.mesh.rotation.y = THREE.Math.degToRad( 60 );
-		page.mesh.position.set(0,500,-500);
+		var pivotPoint;
 
-        var page = new Page(this.scene, 'Ex Ludo Librium 03.');
-		page.mesh.rotation.y = THREE.Math.degToRad( 120 );
-		page.mesh.position.set(0,500,-500);
+		pivotPoint = new THREE.Object3D();
+		
 
-		var page = new Page(this.scene, 'Ex Ludo Librium 04.');
-		page.mesh.rotation.y = THREE.Math.degToRad( 180 );
-		page.mesh.position.set(0,500,-500);
+		var page1 = new Page(this.scene, 'Ex Ludo Librium 01.');
+	    page1.mesh.rotation.y = THREE.Math.degToRad( 60 );
+		page1.mesh.position.set(0,500,500);
 
-        var page = new Page(this.scene, 'Ex Ludo Librium 05.');
-		page.mesh.rotation.y = THREE.Math.degToRad( 240 );
-		page.mesh.position.set(0,500,-500);
+		point.add(pivotPoint);
+		pivotPoint.add(page1);
+				
+		
 
-		var page = new Page(this.scene, 'Ex Ludo Librium 06.');
-		page.mesh.rotation.y = THREE.Math.degToRad( 300 );
-		page.mesh.position.set(0,500,-500);
+		var page2 = new Page(this.scene, 'Ex Ludo Librium 02.');
+		page2.mesh.rotation.y = THREE.Math.degToRad( 60 );
+		page2.mesh.position.set(0,500,-500);
+
+        var page3 = new Page(this.scene, 'Ex Ludo Librium 03.');
+		page3.mesh.rotation.y = THREE.Math.degToRad( 120 );
+		page3.mesh.position.set(0,500,-500);
+
+		var page4 = new Page(this.scene, 'Ex Ludo Librium 04.');
+		page4.mesh.rotation.y = THREE.Math.degToRad( 180 );
+		page4.mesh.position.set(0,500,-500);
+
+        var page5 = new Page(this.scene, 'Ex Ludo Librium 05.');
+		page5.mesh.rotation.y = THREE.Math.degToRad( 240 );
+		page5.mesh.position.set(0,500,-500);
+
+		var page6 = new Page(this.scene, 'Ex Ludo Librium 06.');
+		page6.mesh.rotation.y = THREE.Math.degToRad( 300 );
+		page6.mesh.position.set(0,500,-500);
 
 		
 		$('form').submit(function(){
