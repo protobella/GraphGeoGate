@@ -75,6 +75,7 @@ function init() {
     //var g_material00 = new THREE.MeshLambertMaterial( {  ambient: 0xbbbbbb});
 
     //cria a mesh
+
     var g_material11 = new THREE.MeshToonMaterial({ color: 0x112233, ambient: 0x00ffff });
 
     mouse2D = new THREE.Vector3( 0, 10000, 0.5 );

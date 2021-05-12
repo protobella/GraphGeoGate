@@ -110,6 +110,7 @@ class Game{
 		mesh.receiveShadow = true;
 		this.scene.add( mesh );
 
+		// mariana
 		// this.loader = new THREE.JSONLoader();
 
 		// this.loader.load("src/hexplanet.js",function(lo){
