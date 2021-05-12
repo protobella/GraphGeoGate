@@ -36,18 +36,21 @@ function init() {
 
     container = document.getElementById( 'container' );
 
+    //perspetiva da camara
     camera = new THREE.PerspectiveCamera( 20, window.innerWidth / window.innerHeight, 1, 10000 );
     camera.position.z = 1800;
 
    //controls = new THREE.OrbitControls( camera );
+   //cria a cena
     scene = new THREE.Scene();
 
+    //cria a luz
     g_light = new THREE.DirectionalLight( 0xffffff );
     g_light.position.set( 0, 0, 1 );
     scene.add( g_light );
 
     var ambientLight = new THREE.AmbientLight( 0xffffff );
-     scene.add( ambientLight );
+    scene.add( ambientLight );
     // shadow
 
     var iNumSubdivisions = 3;
@@ -70,21 +73,27 @@ function init() {
     //var g_material10 = new THREE.MeshLambertMaterial( {  map: texture, ambient: 0xbbbbbb });
     //var g_material01 = new THREE.MeshLambertMaterial( {  ambient: 0xbbbbbb , vertexColors: THREE.VertexColors });
     //var g_material00 = new THREE.MeshLambertMaterial( {  ambient: 0xbbbbbb});
-    var g_material11 = new THREE.MeshToonMaterial({ color: 0x112233, ambient: 0xbbbbbb });
+
+    //cria a mesh
+    var g_material11 = new THREE.MeshToonMaterial({ color: 0x112233, ambient: 0x00ffff });
 
     mouse2D = new THREE.Vector3( 0, 10000, 0.5 );
     //projector = new THREE.Projector();
 
-                //hexoplanetGeometry.mergeVertices();
+    //hexoplanetGeometry.mergeVertices();
     
+    //cria a geometria
     g_hexoplanetGeometry = createHexSphere(iNumSubdivisions);
     mesh = new THREE.Mesh( g_hexoplanetGeometry, g_material11 );
     mesh.position.y = 0;
     mesh.position.x = 0;
-    scene.add( mesh );			
+    scene.add( mesh );	
+    
+    //cria os limites de cada hexa e pentagono
+    var outlineMaterial1 = new THREE.MeshBasicMaterial( { color: 0xff0000,wireframe   : true } );
+    var outlineMesh1 = new THREE.Mesh( g_hexoplanetGeometry, outlineMaterial1 );
 
-
-  
+    scene.add( outlineMesh1 );
 
     renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
     renderer.setSize( window.innerWidth, window.innerHeight );
@@ -154,7 +163,13 @@ function createHexSphere(iNumSubdiv)
 
     var radius = 100.0;				
 
-       hexoplanetGeometry =  new THREE.IcosahedronGeometry( radius, 0 );
+    hexoplanetGeometry =  new THREE.IcosahedronGeometry( radius, 0 );
+    
+    // var outlineMaterial1 = new THREE.MeshBasicMaterial( { color: 0xff0000,wireframe   : true } );
+    // var outlineMesh1 = new THREE.Mesh( hexoplanetGeometry, outlineMaterial1 );
+
+    // scene.add( outlineMesh1 );
+
     hexoplanetGeometry.dynamic = true;
     
 
@@ -237,6 +252,7 @@ function createHexSphere(iNumSubdiv)
             pCurrentHexData.fHeight = random_length;						
             pCurrentHexData.iCenterId = i;
             pCurrentHexData.vCenter =  hexoplanetGeometry.vertices[i];
+
             for ( var j = 0; j < aNeighborsInfo[i].length; j ++ ) 
             {
                 if (pataticas < (iNumSubdiv - 1) )

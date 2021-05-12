@@ -61,34 +61,34 @@ class Game{
 		pivotPoint = new THREE.Object3D();
 		
 
-		var page1 = new Page(this.scene, 'Ex Ludo Librium 01.');
-	    page1.mesh.rotation.y = THREE.Math.degToRad( 60 );
-		page1.mesh.position.set(0,500,500);
+		// var page1 = new Page(this.scene, 'Ex Ludo Librium 01.');
+	    // page1.mesh.rotation.y = THREE.Math.degToRad( 60 );
+		// page1.mesh.position.set(0,500,500);
 
-		point.add(pivotPoint);
-		pivotPoint.add(page1);
+		// point.add(pivotPoint);
+		// pivotPoint.add(page1);
 				
 		
 
-		var page2 = new Page(this.scene, 'Ex Ludo Librium 02.');
-		page2.mesh.rotation.y = THREE.Math.degToRad( 60 );
-		page2.mesh.position.set(0,500,-500);
+		// var page2 = new Page(this.scene, 'Ex Ludo Librium 02.');
+		// page2.mesh.rotation.y = THREE.Math.degToRad( 60 );
+		// page2.mesh.position.set(0,500,-500);
 
-        var page3 = new Page(this.scene, 'Ex Ludo Librium 03.');
-		page3.mesh.rotation.y = THREE.Math.degToRad( 120 );
-		page3.mesh.position.set(0,500,-500);
+        // var page3 = new Page(this.scene, 'Ex Ludo Librium 03.');
+		// page3.mesh.rotation.y = THREE.Math.degToRad( 120 );
+		// page3.mesh.position.set(0,500,-500);
 
-		var page4 = new Page(this.scene, 'Ex Ludo Librium 04.');
-		page4.mesh.rotation.y = THREE.Math.degToRad( 180 );
-		page4.mesh.position.set(0,500,-500);
+		// var page4 = new Page(this.scene, 'Ex Ludo Librium 04.');
+		// page4.mesh.rotation.y = THREE.Math.degToRad( 180 );
+		// page4.mesh.position.set(0,500,-500);
 
-        var page5 = new Page(this.scene, 'Ex Ludo Librium 05.');
-		page5.mesh.rotation.y = THREE.Math.degToRad( 240 );
-		page5.mesh.position.set(0,500,-500);
+        // var page5 = new Page(this.scene, 'Ex Ludo Librium 05.');
+		// page5.mesh.rotation.y = THREE.Math.degToRad( 240 );
+		// page5.mesh.position.set(0,500,-500);
 
-		var page6 = new Page(this.scene, 'Ex Ludo Librium 06.');
-		page6.mesh.rotation.y = THREE.Math.degToRad( 300 );
-		page6.mesh.position.set(0,500,-500);
+		// var page6 = new Page(this.scene, 'Ex Ludo Librium 06.');
+		// page6.mesh.rotation.y = THREE.Math.degToRad( 300 );
+		// page6.mesh.position.set(0,500,-500);
 
 		
 		$('form').submit(function(){
@@ -105,10 +105,20 @@ class Game{
 
 
 		// ground
-		var mesh = new THREE.Mesh( new THREE.PlaneBufferGeometry( 10000, 10000 ), new THREE.MeshPhongMaterial( { color: 0x999999, depthWrite: false } ) );
+		var mesh = new THREE.Mesh( new THREE.PlaneBufferGeometry( 10000, 10000 ), new THREE.MeshPhongMaterial( { color: 0xff0000, depthWrite: false } ) );
 		mesh.rotation.x = - Math.PI / 2;
 		mesh.receiveShadow = true;
 		this.scene.add( mesh );
+
+		// this.loader = new THREE.JSONLoader();
+
+		// this.loader.load("src/hexplanet.js",function(lo){
+		// 	mesh = new THREE.Mesh( lo, new THREE.MeshNormalMaterial() );
+		// 	mesh.scale.set( 10, 10, 10 );
+		// 	mesh.position.y = 150;
+		// 	mesh.position.x = 0;
+		// });
+		// this.scene.add(mesh);
 
 		var grid = new THREE.GridHelper( 5000, 40, 0x000000, 0x000000 );
 		grid.material.opacity = 0.2;
