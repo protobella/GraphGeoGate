@@ -206,29 +206,55 @@ class Game{
         const geometry = new THREE.BoxGeometry(500, 400, 500);
         const material = new THREE.MeshBasicMaterial({color:0x222222, wireframe:true});
 
-	const collider = this.colliders = [];
+	   const collider = this.colliders = [];
         
 		const loaderr = new THREE.STLLoader();
-		
 
         for (let x=-5000; x<5000; x+=1000){
             for (let z=-5000; z<5000; z+=1000){
                 if (x==0 && z==0) continue;
 				loaderr.load( `${this.assetsPath}files/Farm.stl`, function ( geometryy ) {
 					const materiall = new THREE.MeshPhongMaterial( { color: 0xff5533, specular: 0x111111, shininess: 200 } );
-					const box = new THREE.Mesh( geometryy, materiall );
-					box.scale.set( 30, 30, 30 );
-					box.rotation.x = - Math.PI /2
-					box.castShadow = true;
-					box.receiveShadow = true;
+					const farm = new THREE.Mesh( geometryy, materiall );
+					farm.scale.set( 10, 10, 10 );
+					farm.rotation.x = - Math.PI /2
+					farm.castShadow = true;
+					farm.receiveShadow = true;
 		
-                box.position.set(x, 0, z);
-                t.add(box);
-                collider.push(box);
+                farm.position.set(x, 0, z);
+                t.add(farm);
+                collider.push(farm);
 				});
+                
+            loaderr.load( `${this.assetsPath}files/Cave.stl`, function ( geometryyy ) {
+					const materialll = new THREE.MeshPhongMaterial( { color: 0xff5533, specular: 0x111111, shininess: 200 } );
+					const cave = new THREE.Mesh( geometryyy, materialll );
+					cave.scale.set( 10, 10, 10 );
+					cave.rotation.x = - Math.PI /2
+					cave.castShadow = true;
+					cave.receiveShadow = true;
+		
+                cave.position.set(x, 0, z);
+                t.add(cave);
+                collider.push(cave)	
+            			});
+
+            loaderr.load( `${this.assetsPath}files/Forest_-_Bigger.stl`, function ( hexForest ) {
+                    const materialHexForest = new THREE.MeshPhongMaterial( { color: 0xff5533, specular: 0x111111, shininess: 200 } );
+                    const forest = new THREE.Mesh( hexForest, materialHexForest );
+                    forest.scale.set( 10, 10, 10 );
+                    forest.rotation.x = - Math.PI /2
+                    forest.castShadow = true;
+                    forest.receiveShadow = true;
+                
+                forest.position.set(x, 0, z);
+                t.add(forest);
+                collider.push(forest);
+                        });
                 
             }
         }
+       
         
         const geometry2 = new THREE.BoxGeometry(1000, 40, 1000);
         const stage = new THREE.Mesh(geometry2, material);
