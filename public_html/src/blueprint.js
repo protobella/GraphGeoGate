@@ -206,37 +206,36 @@ class Game{
         const geometry = new THREE.BoxGeometry(500, 400, 500);
         const material = new THREE.MeshBasicMaterial({color:0x222222, wireframe:true});
 
-		this.colliders = [];
+	const collider = this.colliders = [];
         
 
 		const loaderr = new THREE.STLLoader();
-		loaderr.load( `${this.assetsPath}files/Farm.stl`, function ( geometryy ) {
-			const materiall = new THREE.MeshPhongMaterial( { color: 0xff5533, specular: 0x111111, shininess: 200 } );
-			const meshh = new THREE.Mesh( geometryy, materiall );
-
-			meshh.position.set( 0, 100, 5);
-			meshh.scale.set( 10, 10, 10 );
-
-			meshh.castShadow = true;
-			meshh.receiveShadow = true;
-			t.add(meshh)
-		});
+		
 
         for (let x=-5000; x<5000; x+=1000){
             for (let z=-5000; z<5000; z+=1000){
                 if (x==0 && z==0) continue;
-                const box = new THREE.Mesh(geometry, material);
-                box.position.set(x, 250, z);
-                this.scene.add(box);
-                this.colliders.push(box);
+				loaderr.load( `${this.assetsPath}files/Farm.stl`, function ( geometryy ) {
+					const materiall = new THREE.MeshPhongMaterial( { color: 0xff5533, specular: 0x111111, shininess: 200 } );
+					const box = new THREE.Mesh( geometryy, materiall );
+					box.scale.set( 30, 30, 30 );
+					box.rotation.x = - Math.PI /2
+					box.castShadow = true;
+					box.receiveShadow = true;
+		
+                box.position.set(x, 0, z);
+                t.add(box);
+                collider.push(box);
+				});
+                
             }
         }
         
         const geometry2 = new THREE.BoxGeometry(1000, 40, 1000);
         const stage = new THREE.Mesh(geometry2, material);
         stage.position.set(0, 20, 0);
-        this.colliders.push(stage);
-        this.scene.add(stage);
+        collider.push(stage);
+        t.add(stage);
     }
     
     movePlayer(dt){
